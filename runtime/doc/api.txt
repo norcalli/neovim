@@ -462,7 +462,7 @@ We can get a mark by its id: >
 
 We can get all marks in a buffer for our namespace (or by a range): >
 
-    echo nvim_buf_get_extmarks(0, g:mark_ns, 0, -1, -1)
+    echo nvim_buf_get_extmarks(0, g:mark_ns, 0, -1, {})
     => [[1, 0, 2]]
 
 Deleting all text surrounding an extmark does not remove the extmark. To
@@ -1813,7 +1813,7 @@ nvim_buf_get_extmarks({buffer}, {ns_id}, {start}, {end}, {opts})
                 as shorthands for (0,0) and (-1,-1) respectively, so that all
                 marks in the buffer can be queried as:
 
-                all_marks = nvim_buf_get_extmarks(0, my_ns, 0, -1, -1)
+                all_marks = nvim_buf_get_extmarks(0, my_ns, 0, -1, {})
 
                 If end is a lower position than start, then the range will be
                 traversed backwards. This is mostly useful with limited amount,
