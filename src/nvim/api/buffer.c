@@ -106,6 +106,14 @@ String buffer_get_line(Buffer buffer, Integer index, Error *err)
 
 /// Activates buffer-update events on a channel, or as Lua callbacks.
 ///
+/// Example (Lua): capture buffer updates in a global `events` variable
+/// (use "print(vim.inspect(events))" to see its contents):
+/// <pre>
+///   events = {}
+///   vim.api.nvim_buf_attach(0, false, {
+///     on_lines=function(...) table.insert(events, {...}) end})
+/// </pre>
+///
 /// @see |nvim_buf_detach()|
 /// @see |api-buffer-updates-lua|
 ///

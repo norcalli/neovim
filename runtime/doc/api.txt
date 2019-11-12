@@ -1516,6 +1516,13 @@ nvim_buf_attach({buffer}, {send_buffer}, {opts})           *nvim_buf_attach()*
                 Activates buffer-update events on a channel, or as Lua
                 callbacks.
 
+                Example (Lua): capture buffer updates in a global `events` variable (use "print(vim.inspect(events))" to see its
+                contents): >
+                  events = {}
+                  vim.api.nvim_buf_attach(0, false, {
+                    on_lines=function(...) table.insert(events, {...}) end})
+<
+
                 Parameters: ~
                     {buffer}       Buffer handle, or 0 for current buffer
                     {send_buffer}  True if the initial notification should
