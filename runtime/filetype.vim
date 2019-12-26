@@ -13,6 +13,11 @@ let did_load_filetypes = 1
 let s:cpo_save = &cpo
 set cpo&vim
 
+if $FILETYPE_LUA
+  luafile $VIMRUNTIME/filetype.lua
+  finish
+endif
+
 augroup filetypedetect
 
 " Ignored extensions
